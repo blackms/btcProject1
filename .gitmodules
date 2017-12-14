@@ -1,0 +1,6 @@
+[submodule "python-bittrex"]
+	path = python-bittrex
+	url = https://github.com/ericsomdahl/python-bittrex
+[submodule "bitstamp-python-client"]
+	path = bitstamp-python-client
+	url = https://github.com/kmadac/bitstamp-python-client
