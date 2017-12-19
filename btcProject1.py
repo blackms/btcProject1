@@ -24,4 +24,4 @@ if __name__ == '__main__':
     monitorPool[b.name].start()
 
     time.sleep(1)
-    monitorPool.stop_all()
+    #monitorPool.stop_all()
