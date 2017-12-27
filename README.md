@@ -1,0 +1,2 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/be32822d70d676c4eb69/maintainability)](https://codeclimate.com/github/blackms/btcProject1/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/be32822d70d676c4eb69/test_coverage)](https://codeclimate.com/github/blackms/btcProject1/test_coverage)
