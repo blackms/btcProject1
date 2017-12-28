@@ -34,10 +34,16 @@ class Worker(object):
     def stop(self):
         self.log.info('Stopping')
 
-    def run_once(self):
+    def run_once(self) -> None:
         return self.run_forever(until_number_of_successes=1)
 
-    def run_forever(self, until_number_of_successes=None):
+    def run_forever(self, until_number_of_successes: int=None) -> None:
+        """
+        Method which start the asynchronous worker
+
+        :param until_number_of_successes: [int] Number of loops before sop
+        :return: None
+        """
         assert not self.is_running
         self.reset()
         self.is_running = True
@@ -74,7 +80,7 @@ class Worker(object):
                 yield self.sleep()
 
     @coroutine
-    def sleep(self):
+    def sleep(self) -> None:
         self.log.debug('sleeping for %d seconds', self.timeout)
         yield Task(IOLoop.instance().add_timeout,
                    IOLoop.instance().time() + self.timeout)
