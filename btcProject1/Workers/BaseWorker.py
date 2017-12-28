@@ -64,7 +64,8 @@ class Worker(object):
                 self.log.debug('work success')
             finally:
                 self.iterations += 1
-            if until_number_of_successes is not None and self.successes >= until_number_of_successes:
+            if until_number_of_successes is not None \
+                    and self.successes >= until_number_of_successes:
                 self.stop()
                 self.is_running = False
                 # Only really useful with until_number_of_successes=1
@@ -78,3 +79,6 @@ class Worker(object):
         yield Task(IOLoop.instance().add_timeout,
                    IOLoop.instance().time() + self.timeout)
         self.log.debug('woken up')
+
+
+
