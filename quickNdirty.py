@@ -62,13 +62,13 @@ while True:
         match = list(filter(lambda x: float(x['price']) == float(sell_at), open_orders))
         if len(match) == 0:
             print("!!! Creating Sell Order at: {}".format(sell_at))
-            amount_to_sell = float(current_balance_eur['btc_balance']) - 0.09122347
+            amount_to_sell = float(current_balance_eur['btc_balance'])
             try:
                 trader.sell_limit_order(amount=round(amount_to_sell, 8), price=sell_at, base='btc', quote='eur')
             except BitstampError as e:
                 print(e)
                 sys.exit(0)
-    if my_last_transaction['type'] == '1':
+    if my_last_transaction['type'] == '2':
         print("Sold at price: {}, current fee: {}, Current EUR available: {}".format(
             my_last_transaction['btc_eur'],
             current_balance_eur['fee'],
@@ -84,10 +84,10 @@ while True:
         match = list(filter(lambda x: float(x['price']) == float(buy_at), open_orders))
         if len(match) == 0:
             print("!!! Creating Buy Order at: {}".format(buy_at))
-            amount_to_buy = float(current_balance_eur['eur_available']) - 1072.55
+            amount_to_buy = float(float(current_balance_eur['eur_available']) / buy_at)
             try:
                 trader.buy_limit_order(amount=round(amount_to_buy, 8), price=buy_at, base='btc', quote='eur')
             except BitstampError as e:
                 print(e)
                 sys.exit(0)
-    time.sleep(1)
+    time.sleep(2)
